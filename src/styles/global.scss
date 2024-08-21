@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --wac-primary: #0099ff;
+  --wac-primary-900: #188edd;
+  --wac-primary-800: #0561e2;
+  --wac-black: #000000;
+  --wac-black-900: #121316;
+  --wac-black-800: #212121;
+  --wac-white: #ffffff;
+  --wac-white-900: #ffffff80;
+  --wac-transparent: #00000000;
+  --wac-grey: #f5f5f5;
+  --wac-grey-900: #bcbcbf;
+
+  --wac-font-light: 300;
+  --wac-font-regular: 400;
+  --wac-font-medium: 500;
+  --wac-font-semibold: 600;
+  --wac-font-bold: 700;
+
+  --gutter-x: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-black-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply sm:max-w-[540px] md:max-w-[720px] 
+      lg:max-w-[960px] xl:max-w-[1080px] 
+      xxl:max-w-[1260px] xxxl:max-w-[1403px];
+  }
+  .btn-gradient-outline {
+    @apply px-7 py-[26px] rounded-full text-white relative bg-gradient-to-r from-white-900 to-transparent;
+    &::before {
+      @apply content-[""] absolute inset-px bg-black-800 rounded-full;
+    }
+  }
+}
+
+@layer utilities {
+  .text-clip-primary {
+    background: linear-gradient(to right, #0099ff, #188edd, #0561e2) no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

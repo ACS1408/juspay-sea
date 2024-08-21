@@ -1,19 +1,59 @@
 import type { Config } from "tailwindcss";
 
+const colors = {
+  primary: {
+    DEFAULT: "var(--wac-primary)",
+    900: "var(--wac-primary-900)",
+    800: "var(--wac-primary-800)",
+  },
+  black: {
+    DEFAULT: "var(--wac-black)",
+    900: "var(--wac-black-900)",
+    800: "var(--wac-black-800)",
+  },
+  white: {
+    DEFAULT: "var(--wac-white)",
+    900: "var(--wac-white-900)",
+  },
+  transparent: "var(--wac-transparent)",
+  grey: {
+    DEFAULT: "var(--wac-grey)",
+    900: "var(--wac-grey-900)",
+  },
+};
+
+const fontWeight = {
+  light: "var(--wac-font-light)",
+  regular: "var(--wac-font-regular)",
+  medium: "var(--wac-font-medium)",
+  semibold: "var(--wac-font-semibold)",
+  bold: "var(--wac-font-bold)",
+};
+
+const container = {
+  center: true,
+  padding: "calc(var(--gutter-x) / 2)",
+};
+
+const screens = {
+  xs: { max: "576px" },
+  sm: "576px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px",
+  xxl: "1420px",
+  xxxl: "1600px",
+  laptop: { min: "1200px", max: "1450px" },
+};
+
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    colors,
+    fontWeight,
+    container,
+    screens,
+    extend: {},
   },
   plugins: [],
 };
