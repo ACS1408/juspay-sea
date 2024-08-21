@@ -16,21 +16,29 @@ const MainHeader = () => {
               height={56}
             />
           </Link>
-          <nav className="main-header__nav flex items-center gap-[52px]">
-            <ul className="nav-links flex items-center gap-11">
-              <li className="nav-links__item text-white text-lg font-semibold leading-[1.6]">
+          <nav className={`main-header__nav ${twClasses.nav}`}>
+            <ul className={`nav-links ${twClasses.nav_links}`}>
+              <li
+                className={`nav-links__item ${twClasses.nav_link_item.base} ${twClasses.nav_link_item.hover}`}
+              >
                 <Link href={`/`}>About us</Link>
               </li>
-              <li className="nav-links__item text-white text-lg font-semibold leading-[1.6]">
+              <li
+                className={`nav-links__item ${twClasses.nav_link_item.base} ${twClasses.nav_link_item.hover}`}
+              >
                 <Link href={`/`}>Docs</Link>
               </li>
-              <li className="nav-links__item text-white text-lg font-semibold leading-[1.6]">
+              <li
+                className={`nav-links__item ${twClasses.nav_link_item.base} ${twClasses.nav_link_item.hover}`}
+              >
                 <Link href={`/`}>Integrations</Link>
               </li>
             </ul>
-            <ul className="other-nav-list flex items-center gap-8">
+            <ul className={`other-nav-list ${twClasses.other_nav}`}>
               <li className="nav-list__item">
-                <button className="language-selector size-[52px] border border-black-800 rounded-full flex justify-center items-center">
+                <button
+                  className={`language-selector ${twClasses.language_selector.base} ${twClasses.language_selector.hover}`}
+                >
                   <svg
                     width="29"
                     height="28"
@@ -45,7 +53,9 @@ const MainHeader = () => {
                   </svg>
                 </button>
               </li>
-              <li className="nav-links__item text-primary text-lg font-semibold leading-[1.6]">
+              <li
+                className={`nav-list__item ${twClasses.nav_list_item.base} ${twClasses.nav_list_item.hover}`}
+              >
                 <Link href={`/`} className="flex items-center gap-[2px]">
                   <span className="link-text">Contact us</span>
                   <span className="link-icon">
@@ -58,7 +68,7 @@ const MainHeader = () => {
                     >
                       <path
                         d="M8.90137 6.78271C10.1196 7.66777 11.2108 8.70528 12.1465 9.86782C12.2641 10.0139 12.2641 10.2182 12.1465 10.3643C11.2108 11.5268 10.1196 12.5643 8.90137 13.4494"
-                        stroke="#0099FF"
+                        stroke="currentColor"
                         stroke-width="1.2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -76,3 +86,21 @@ const MainHeader = () => {
 };
 
 export default MainHeader;
+
+const twClasses = {
+  nav: "flex items-center gap-[52px]",
+  nav_links: "flex items-center gap-11",
+  nav_link_item: {
+    base: "text-white text-lg font-semibold leading-[1.6] transition-colors ease-in-out duration-300",
+    hover: "hover:text-primary",
+  },
+  other_nav: "flex items-center gap-8",
+  language_selector: {
+    base: "size-[52px] border border-black-800 rounded-full flex justify-center items-center will-change-transform transition-all ease-in-out duration-300",
+    hover: "hover:scale-110 hover:bg-black-800",
+  },
+  nav_list_item: {
+    base: "text-primary text-lg font-semibold leading-[1.6] transition-colors ease-in-out duration-300",
+    hover: "hover:text-primary-800",
+  },
+};

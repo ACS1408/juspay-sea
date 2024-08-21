@@ -37,7 +37,14 @@
       xxl:max-w-[1260px] xxxl:max-w-[1403px];
   }
   .btn-gradient-outline {
-    @apply px-7 py-[26px] rounded-full text-white relative bg-gradient-to-r from-white-900 to-transparent;
+    @apply px-7 py-[26px] rounded-full text-white relative transition-all ease-in-out duration-500;
+    background: linear-gradient(to right, transparent, #ffffff80, transparent);
+    background-repeat: no-repeat;
+    background-size: 150% 100%;
+    background-position-x: 100%;
+    &:hover {
+      background-position-x: 0%;
+    }
     &::before {
       @apply content-[""] absolute inset-px bg-black-800 rounded-full;
     }
