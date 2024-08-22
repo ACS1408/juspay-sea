@@ -76,9 +76,9 @@ const twClasses = {
   grid_markings: "absolute top-0 left-0 size-full",
   title: {
     normal:
-      "text-grey text-[6vmax] leading-[1.2] block text-center tracking-tight font-semibold",
+      "text-grey text-[80px] leading-[1.2] block text-center tracking-tight font-semibold",
     highlighted:
-      "text-clip-primary text-[6vmax] leading-[1.2] block text-center tracking-tight font-semibold",
+      "text-clip-primary text-[80px] leading-[1.2] block text-center tracking-tight font-semibold",
   },
   description:
     "text-grey-900 text-base font-regular leading-normal max-w-[435px] mx-auto text-center pt-[3%]",
