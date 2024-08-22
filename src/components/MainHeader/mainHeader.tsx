@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const MainHeader = () => {
   return (
-    <header className="main-header py-9">
+    <header className="main-header py-9 z-[1024] relative">
       <Container>
         <div className="flex justify-between gap-10">
           <Link href={`/`}>
@@ -69,9 +69,9 @@ const MainHeader = () => {
                       <path
                         d="M8.90137 6.78271C10.1196 7.66777 11.2108 8.70528 12.1465 9.86782C12.2641 10.0139 12.2641 10.2182 12.1465 10.3643C11.2108 11.5268 10.1196 12.5643 8.90137 13.4494"
                         stroke="currentColor"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>

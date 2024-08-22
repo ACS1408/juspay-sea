@@ -19,6 +19,7 @@ const colors = {
   grey: {
     DEFAULT: "var(--wac-grey)",
     900: "var(--wac-grey-900)",
+    800: "var(--wac-grey-800)",
   },
 };
 
