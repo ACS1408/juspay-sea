@@ -33,7 +33,7 @@ const fontWeight = {
 
 const container = {
   center: true,
-  padding: "calc(var(--gutter-x) / 2)",
+  padding: "calc(var(--jp-gutter-x) / 2)",
 };
 
 const screens = {

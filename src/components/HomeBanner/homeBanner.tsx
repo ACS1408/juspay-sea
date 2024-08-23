@@ -38,6 +38,11 @@ const HomeBanner = () => {
               Payments designed for
             </span>
             <CharacterSlots slotLetters={slotLetters} />
+            <span
+              className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
+            >
+              GLOBAL OUTCOMES
+            </span>
           </h1>
           <p
             className={`home-banner__description reveal to-top ${twClasses.description}`}
@@ -51,7 +56,7 @@ const HomeBanner = () => {
             regulatory nuances.
           </p>
           <div
-            className="text-center pt-[4%] w-max mx-auto reveal to-top"
+            className={`home-banner__button ${twClasses.button}`}
             ref={hoverableElements[2]}
           >
             <Link
@@ -77,13 +82,16 @@ export default HomeBanner;
 
 const twClasses = {
   home_banner:
-    "min-h-[calc(100svh_-_127.68px)] overflow-hidden flex items-center",
+    "sm:min-h-[calc(100svh_-_127.68px)] overflow-hidden flex items-center xs:py-10",
   container: "relative flex justify-center items-center h-full",
   grid_markings: "absolute top-0 left-0 size-full",
   title: {
     normal:
-      "text-grey text-[96px] leading-[1.2] block text-center tracking-tight font-semibold",
+      "text-grey xxl:text-[96px] lg:text-[86px] md:text-[72px] sm:text-[64px] text-[40px] leading-[1.2] block text-center tracking-tight font-semibold xl:max-w-full sm:max-w-[576px] max-w-[320px] mx-auto xl:mb-0 mb-2",
+    highlighted:
+      "xxl:hidden lg:text-[86px] md:text-[72px] sm:text-[64px] text-[40px] leading-[1.2] tracking-tight font-semibold text-clip-primary xl:max-w-full sm:max-w-[576px] max-w-[320px] mx-auto block text-center",
   },
   description:
-    "text-grey-900 text-base font-regular leading-normal max-w-[435px] mx-auto text-center pt-[3%]",
+    "text-grey-900 text-base font-regular leading-normal sm:max-w-[435px] max-w-[320px] mx-auto text-center xl:pt-[3%] pt-8",
+  button: "text-center xl:pt-[4%] pt-14 w-max mx-auto reveal to-top",
 };

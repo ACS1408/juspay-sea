@@ -1,8 +1,10 @@
+"use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, MutableRefObject, useState, useLayoutEffect } from "react";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 interface useHomeBanner {
   container: MutableRefObject<HTMLDivElement | null>;
@@ -75,79 +77,69 @@ const useHomeBanner = (): useHomeBanner => {
 
   useGSAP(
     () => {
-      gsap.to(mouseTrackCard.current, {
-        autoAlpha: 0,
-        scale: 1,
-        force3d: true,
-      });
-
       const handleMouseMove = (e: MouseEvent) => {
-        if (container.current) {
-          const { clientX: x, clientY: y } = e;
-          const {
-            left: containerLeft,
-            top: containerTop,
-            right: containerRight,
-            bottom: containerBottom,
-            width: containerWidth,
-          } = container.current.getBoundingClientRect();
+        ScrollTrigger.matchMedia({
+          "(min-width: 1400px)": () => {
+            if (container.current) {
+              const { clientX: x, clientY: y } = e;
+              const {
+                left: containerLeft,
+                top: containerTop,
+                right: containerRight,
+                bottom: containerBottom,
+                width: containerWidth,
+              } = container.current.getBoundingClientRect();
 
-          const isInsideContainer =
-            x >= containerLeft &&
-            x <= containerRight &&
-            y >= containerTop &&
-            y <= containerBottom;
+              const isInsideContainer =
+                x >= containerLeft &&
+                x <= containerRight &&
+                y >= containerTop &&
+                y <= containerBottom;
 
-          const changeCardData = (dataIndex: number) => {
-            setCardDataIndex(dataIndex);
-          };
+              const changeCardData = (dataIndex: number) => {
+                setCardDataIndex(dataIndex);
+              };
 
-          if (x < containerWidth * 0.3333) changeCardData(0);
-          else if (x >= containerWidth * 0.6666) changeCardData(2);
-          else changeCardData(1);
+              if (x < containerWidth * 0.3333) changeCardData(0);
+              else if (x >= containerWidth * 0.6666) changeCardData(2);
+              else changeCardData(1);
 
-          const isInsideAnyElement = hoverableElements.some((hoverableRef) => {
-            if (hoverableRef.current) {
-              const { left, top, right, bottom } =
-                hoverableRef.current.getBoundingClientRect();
-              return x >= left && x <= right && y >= top && y <= bottom;
+              const isInsideAnyElement = hoverableElements.some(
+                (hoverableRef) => {
+                  if (hoverableRef.current) {
+                    const { left, top, right, bottom } =
+                      hoverableRef.current.getBoundingClientRect();
+                    return x >= left && x <= right && y >= top && y <= bottom;
+                  }
+                  return false;
+                }
+              );
+              if (isInsideContainer && !isInsideAnyElement) {
+                gsap.to(mouseTrackCard.current, {
+                  top: `${y}px`,
+                  left: `${x}px`,
+                  scale: 1,
+                  autoAlpha: 1,
+                  force3d: true,
+                  transformOrigin: "center",
+                  overwrite: "auto",
+                });
+              } else {
+                gsap.to(mouseTrackCard.current, {
+                  top: `${y}px`,
+                  left: `${x}px`,
+                  scale: 0.5,
+                  autoAlpha: 0,
+                  force3d: true,
+                  transformOrigin: "center",
+                  duration: 0.3,
+                  overwrite: "auto",
+                });
+              }
             }
-            return false;
-          });
-          if (isInsideContainer && !isInsideAnyElement) {
-            gsap.to(mouseTrackCard.current, {
-              top: `${y}px`,
-              left: `${x}px`,
-              scale: 1,
-              autoAlpha: 1,
-              force3d: true,
-              transformOrigin: "center",
-              overwrite: "auto",
-            });
-          } else {
-            gsap.to(mouseTrackCard.current, {
-              top: `${y}px`,
-              left: `${x}px`,
-              scale: 0.5,
-              autoAlpha: 0,
-              force3d: true,
-              transformOrigin: "center",
-              duration: 0.3,
-              overwrite: "auto",
-            });
-          }
-        }
-      };
-
-      slotLetters.forEach((letter) => {
-        gsap.to(letter.current, {
-          y: -115.2 * 4,
-          force3d: true,
-          duration: Math.random() * (5 - 4) + 4,
-          ease: "power4.inOut",
-          overwrite: "auto",
+          },
         });
-      });
+      };
 
       gsap.set(".reveal.to-top", { y: 50, autoAlpha: 0 });
 
@@ -163,6 +155,30 @@ const useHomeBanner = (): useHomeBanner => {
           stagger: { amount: 0.5 },
         }
       );
+
+      ScrollTrigger.matchMedia({
+        "(min-width: 1400px)": () => {
+          gsap.to(mouseTrackCard.current, {
+            autoAlpha: 0,
+            scale: 1,
+            force3d: true,
+          });
+        },
+      });
+
+      ScrollTrigger.matchMedia({
+        "(min-width: 1400px)": () => {
+          slotLetters.forEach((letter) => {
+            gsap.to(letter.current, {
+              y: -115.2 * 4,
+              force3d: true,
+              duration: Math.random() * (5 - 4) + 4,
+              ease: "power4.inOut",
+              overwrite: "auto",
+            });
+          });
+        },
+      });
 
       window?.addEventListener("mousemove", handleMouseMove);
       return () => {

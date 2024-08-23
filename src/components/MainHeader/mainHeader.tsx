@@ -1,37 +1,53 @@
 "use client";
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Container from "../Container";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MainHeader = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useLayoutEffect(() => {
     let revealTl = gsap.timeline();
-
-    revealTl.fromTo(
-      ".reveal.to-bottom",
-      { y: -50, autoAlpha: 0 },
-      {
-        y: 0,
-        autoAlpha: 1,
-        duration: 3,
-        ease: "expo.out",
-        stagger: { amount: 0.5 },
-      }
-    );
+    ScrollTrigger.matchMedia({
+      "(min-width: 992px)": () => {
+        revealTl.fromTo(
+          ".reveal.to-bottom",
+          { y: -50, autoAlpha: 0 },
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 3,
+            ease: "expo.out",
+            stagger: { amount: 0.5 },
+          }
+        );
+      },
+    });
   }, []);
+
+  const handleOpenMobMenu = () => {
+    setIsMobileMenuOpen(true);
+  };
+  const handleCloseMobMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className={`main-header reveal to-bottom ${twClasses.main_header}`}>
       <Container>
-        <div className="flex justify-between gap-10">
+        <div className={`main-header__inner ${twClasses.main_header_inner}`}>
           <Link href={`/`}>
             <Image
               src="/images/juspay-logo.svg"
               alt="juspay-logo"
               width={175}
               height={56}
+              className="xs:max-w-[140px]"
             />
           </Link>
           <nav className={`main-header__nav ${twClasses.nav}`}>
@@ -108,8 +124,43 @@ const MainHeader = () => {
               </li>
             </ul>
           </nav>
+          <div
+            className={`main-header__hamburger ${twClasses.hamburger}`}
+            onClick={handleOpenMobMenu}
+          >
+            <span className="w-[13px] h-[2px] bg-[#e1e1e1] rounded-md"></span>
+            <span className="w-[13px] h-[2px] bg-[#e1e1e1] rounded-md"></span>
+            <span className="w-[13px] h-[2px] bg-[#e1e1e1] rounded-md"></span>
+          </div>
         </div>
       </Container>
+      <nav
+        className={`mob-menu ${twClasses.mob_menu} ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <button
+          className={`close-btn ${twClasses.close_btn}`}
+          onClick={handleCloseMobMenu}
+        >
+          <span className="rotate-45 bg-white w-5 h-[2px] rounded-md inline-block -mb-[1px]"></span>
+          <span className="-rotate-45 bg-white w-5 h-[2px] rounded-md inline-block -mt-[1px]"></span>
+        </button>
+        <ul className={`mob-menu__list ${twClasses.mob_menu_list}`}>
+          <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
+            <Link href="/">About us</Link>
+          </li>
+          <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
+            <Link href="/">Docs</Link>
+          </li>
+          <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
+            <Link href="/">Integrations</Link>
+          </li>
+          <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
+            <Link href="/">Contact us</Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };
@@ -117,8 +168,10 @@ const MainHeader = () => {
 export default MainHeader;
 
 const twClasses = {
-  main_header: "py-9 z-[1024] relative",
-  nav: "flex items-center gap-[52px]",
+  main_header: "lg:py-9 py-6 z-[1024] relative",
+  main_header_inner:
+    "flex justify-between items-center gap-10 llg:border-none border border-[#2a2a2a] lg:rounded-none rounded-[56px] lg:p-0 p-2",
+  nav: "lg:flex items-center gap-[52px] hidden",
   nav_links: "flex items-center gap-11",
   nav_link_item: {
     base: "text-white text-lg font-semibold leading-[1.6] transition-colors ease-in-out duration-300",
@@ -133,4 +186,12 @@ const twClasses = {
     base: "text-primary text-lg font-semibold leading-[1.6] transition-colors ease-in-out duration-300",
     hover: "hover:text-primary-800",
   },
+  hamburger:
+    "bg-[#2d2b2b] rounded-full size-10 lg:hidden flex flex-col gap-[3px] justify-center items-center",
+  mob_menu:
+    "bg-black-900 fixed w-full h-svh top-0 right-0 transition-transform ease-in-out duration-300",
+  close_btn:
+    "absolute top-8 right-8 size-10 bg-[#2d2b2b] rounded-full flex flex-col justify-center items-center",
+  mob_menu_list: "p-4 pt-24 flex flex-col gap-6",
+  mob_item: "text-3xl text-white font-semibold text-center",
 };

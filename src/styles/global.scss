@@ -65,13 +65,15 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .reveal {
-    opacity: 0;
-    &.to-bottom {
-      transform: translateY(-50px);
-    }
-    &.to-top {
-      transform: translateY(50px);
+  @media screen and (min-width: 1400px) {
+    .reveal {
+      opacity: 0;
+      &.to-bottom {
+        transform: translateY(-50px);
+      }
+      &.to-top {
+        transform: translateY(50px);
+      }
     }
   }
 }

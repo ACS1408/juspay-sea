@@ -9,7 +9,7 @@ type CharSet = {
   otherChars: string[];
 };
 
-const characterSet = [
+const characterSet1 = [
   {
     char: "G",
     width: 80,
@@ -40,6 +40,9 @@ const characterSet = [
     width: 50,
     otherChars: ["₹", "£", "€", "$"],
   },
+] satisfies CharSet[];
+
+const characterSet2 = [
   {
     char: "O",
     width: 80,
@@ -88,7 +91,7 @@ const CharacterSlots: React.FC<CharacterSlots> = ({ slotLetters }) => {
       <span
         className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
       >
-        {characterSet?.map((item, i) => {
+        {characterSet1?.map((item, i) => {
           return (
             <div
               className={`highlight-letter ${twClasses.highlight_letter}`}
@@ -120,6 +123,41 @@ const CharacterSlots: React.FC<CharacterSlots> = ({ slotLetters }) => {
           );
         })}
       </span>
+      <span
+        className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
+      >
+        {characterSet2?.map((item, i) => {
+          return (
+            <div
+              className={`highlight-letter ${twClasses.highlight_letter}`}
+              key={i}
+            >
+              <div
+                className={`letter-list ${twClasses.letter_list}`}
+                ref={slotLetters[characterSet1.length + i]}
+              >
+                {item?.otherChars?.map((data, j) => {
+                  return (
+                    <div
+                      className="letter-box"
+                      style={{ width: `${item?.width}px` }}
+                      key={j}
+                    >
+                      {data}
+                    </div>
+                  );
+                })}
+                <div
+                  className="block visible-letter"
+                  style={{ width: `${item?.width}px` }}
+                >
+                  {item?.char}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </span>
     </div>
   );
 };
@@ -127,10 +165,11 @@ const CharacterSlots: React.FC<CharacterSlots> = ({ slotLetters }) => {
 export default CharacterSlots;
 
 const twClasses = {
-  character_slots: "flex justify-center gap-8",
+  character_slots:
+    "flex justify-center xl:gap-8 gap-0 xl:flex-row flex-col items-center",
   title: {
     highlighted:
-      "text-[96px] leading-[1.2] flex text-center tracking-tight font-semibold",
+      "text-[96px] leading-[1.2] xxl:flex hidden text-center tracking-tight font-semibold",
   },
   letter_list: "text-clip-primary tracking-tighter",
   highlight_letter: "h-[115.2px] overflow-hidden",
