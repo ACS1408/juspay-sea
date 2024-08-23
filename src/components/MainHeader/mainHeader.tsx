@@ -124,14 +124,15 @@ const MainHeader = () => {
               </li>
             </ul>
           </nav>
-          <div
+          <button
             className={`main-header__hamburger ${twClasses.hamburger}`}
             onClick={handleOpenMobMenu}
+            aria-label="Open mobile menu"
           >
             <span className="w-[13px] h-[2px] bg-[#e1e1e1] rounded-md"></span>
             <span className="w-[13px] h-[2px] bg-[#e1e1e1] rounded-md"></span>
             <span className="w-[13px] h-[2px] bg-[#e1e1e1] rounded-md"></span>
-          </div>
+          </button>
         </div>
       </Container>
       <nav
@@ -142,22 +143,31 @@ const MainHeader = () => {
         <button
           className={`close-btn ${twClasses.close_btn}`}
           onClick={handleCloseMobMenu}
+          aria-label="Close mobile menu"
         >
           <span className="rotate-45 bg-white w-5 h-[2px] rounded-md inline-block -mb-[1px]"></span>
           <span className="-rotate-45 bg-white w-5 h-[2px] rounded-md inline-block -mt-[1px]"></span>
         </button>
         <ul className={`mob-menu__list ${twClasses.mob_menu_list}`}>
           <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
-            <Link href="/">About us</Link>
+            <Link href="/" aria-label="Go to about us page">
+              About us
+            </Link>
           </li>
           <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
-            <Link href="/">Docs</Link>
+            <Link href="/" aria-label="Go to docs page">
+              Docs
+            </Link>
           </li>
           <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
-            <Link href="/">Integrations</Link>
+            <Link href="/" aria-label="Go to integrations page">
+              Integrations
+            </Link>
           </li>
           <li className={`mob-menu__list--item ${twClasses.mob_item}`}>
-            <Link href="/">Contact us</Link>
+            <Link href="/" aria-label="Go to contact us page">
+              Contact us
+            </Link>
           </li>
         </ul>
       </nav>
