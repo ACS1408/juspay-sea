@@ -47,7 +47,8 @@ const MouseTrackCard: React.FC<MouseTrackCard> = ({
 export default MouseTrackCard;
 
 const twClasses = {
-  mouse_track_card: "fixed -translate-x-1/2 -translate-y-1/2 size-[213px]",
+  mouse_track_card:
+    "fixed -translate-x-1/2 -translate-y-1/2 size-[213px] opacity-0 scale-1/2",
   mouse_track_card_inner: "rounded-[39px] overflow-hidden inline-block",
   mouse_track_card_stats:
     "bg-black-900 absolute bottom-6 right-0 px-5 py-4 translate-x-1/2 el-gradient-outline",

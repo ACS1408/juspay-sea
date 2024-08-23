@@ -61,31 +61,17 @@ const useHomeBanner = (): useHomeBanner => {
   const container = useRef<HTMLDivElement | null>(null);
   const mouseTrackCard = useRef<HTMLDivElement | null>(null);
   const mouseTrackCardInner = useRef<HTMLDivElement | null>(null);
-  const hoverableElements = [
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-  ];
+  const hoverableElements = Array.from({ length: 3 }, () =>
+    useRef<HTMLDivElement | null>(null)
+  );
+
   const [trackCardData, setTrackCardData] = useState<TrackCardData>(
     trackCardDataset[0]
   );
   const [cardDataIndex, setCardDataIndex] = useState(0);
-  const slotLetters = [
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-    useRef<HTMLDivElement | null>(null),
-  ];
+  const slotLetters = Array.from({ length: 14 }, () =>
+    useRef<HTMLDivElement | null>(null)
+  );
 
   useGSAP(
     () => {
@@ -136,6 +122,7 @@ const useHomeBanner = (): useHomeBanner => {
               autoAlpha: 1,
               force3d: true,
               transformOrigin: "center",
+              overwrite: "auto",
             });
           } else {
             gsap.to(mouseTrackCard.current, {
@@ -146,6 +133,7 @@ const useHomeBanner = (): useHomeBanner => {
               force3d: true,
               transformOrigin: "center",
               duration: 0.3,
+              overwrite: "auto",
             });
           }
         }
@@ -157,6 +145,7 @@ const useHomeBanner = (): useHomeBanner => {
           force3d: true,
           duration: Math.random() * (5 - 4) + 4,
           ease: "power4.inOut",
+          overwrite: "auto",
         });
       });
 
@@ -167,6 +156,7 @@ const useHomeBanner = (): useHomeBanner => {
     },
     { scope: container }
   );
+  
   useLayoutEffect(() => {
     gsap.to(mouseTrackCardInner.current, {
       scale: 0.5,
@@ -174,6 +164,7 @@ const useHomeBanner = (): useHomeBanner => {
       force3d: true,
       transformOrigin: "center",
       duration: 0.3,
+      overwrite: "auto",
       onStart: () => {
         setTimeout(() => {
           setTrackCardData(trackCardDataset[cardDataIndex]);
