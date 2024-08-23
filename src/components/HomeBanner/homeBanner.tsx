@@ -51,7 +51,11 @@ const HomeBanner = () => {
             className="text-center pt-[4%] w-max mx-auto"
             ref={hoverableElements[2]}
           >
-            <Link href={`/`} className="btn-gradient-outline inline-block">
+            <Link
+              href={`/`}
+              className="btn-gradient-outline inline-block"
+              aria-label="Schedule a demo"
+            >
               <span className="z-[2] relative">Schedule a demo</span>
             </Link>
           </div>

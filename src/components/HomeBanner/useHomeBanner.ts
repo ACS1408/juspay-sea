@@ -89,6 +89,12 @@ const useHomeBanner = (): useHomeBanner => {
 
   useGSAP(
     () => {
+      gsap.to(mouseTrackCard.current, {
+        autoAlpha: 0,
+        scale: 1,
+        force3d: true,
+      });
+
       const handleMouseMove = (e: MouseEvent) => {
         if (container.current) {
           const { clientX: x, clientY: y } = e;
