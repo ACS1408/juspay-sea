@@ -21,23 +21,30 @@ const MainHeader = () => {
               <li
                 className={`nav-links__item ${twClasses.nav_link_item.base} ${twClasses.nav_link_item.hover}`}
               >
-                <Link href={`/`}>About us</Link>
+                <Link href={`/`} aria-label="Go to About us page">
+                  About us
+                </Link>
               </li>
               <li
                 className={`nav-links__item ${twClasses.nav_link_item.base} ${twClasses.nav_link_item.hover}`}
               >
-                <Link href={`/`}>Docs</Link>
+                <Link href={`/`} aria-label="Go to Docs page">
+                  Docs
+                </Link>
               </li>
               <li
                 className={`nav-links__item ${twClasses.nav_link_item.base} ${twClasses.nav_link_item.hover}`}
               >
-                <Link href={`/`}>Integrations</Link>
+                <Link href={`/`} aria-label="Go to Integrations page">
+                  Integrations
+                </Link>
               </li>
             </ul>
             <ul className={`other-nav-list ${twClasses.other_nav}`}>
               <li className="nav-list__item">
                 <button
                   className={`language-selector ${twClasses.language_selector.base} ${twClasses.language_selector.hover}`}
+                  aria-label="Switch language"
                 >
                   <svg
                     width="29"
@@ -56,7 +63,11 @@ const MainHeader = () => {
               <li
                 className={`nav-list__item ${twClasses.nav_list_item.base} ${twClasses.nav_list_item.hover}`}
               >
-                <Link href={`/`} className="flex items-center gap-[2px]">
+                <Link
+                  href={`/`}
+                  className="flex items-center gap-[2px]"
+                  aria-label="Go to contact us page"
+                >
                   <span className="link-text">Contact us</span>
                   <span className="link-icon">
                     <svg
