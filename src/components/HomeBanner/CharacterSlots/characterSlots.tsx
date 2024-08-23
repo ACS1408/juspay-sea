@@ -84,18 +84,18 @@ const characterSet = [
 
 const CharacterSlots: React.FC<CharacterSlots> = ({ slotLetters }) => {
   return (
-    <div className="flex justify-center gap-8">
+    <div className={`character-slots ${twClasses.character_slots}`}>
       <span
         className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
       >
         {characterSet?.map((item, i) => {
           return (
             <div
-              className="highlight-letter h-[115.2px] overflow-hidden"
+              className={`highlight-letter ${twClasses.highlight_letter}`}
               key={i}
             >
               <div
-                className="letter-list text-clip-primary tracking-tighter"
+                className={`letter-list ${twClasses.letter_list}`}
                 ref={slotLetters[i]}
               >
                 {item?.otherChars?.map((data, j) => {
@@ -127,8 +127,11 @@ const CharacterSlots: React.FC<CharacterSlots> = ({ slotLetters }) => {
 export default CharacterSlots;
 
 const twClasses = {
+  character_slots: "flex justify-center gap-8",
   title: {
     highlighted:
       "text-[96px] leading-[1.2] flex text-center tracking-tight font-semibold",
   },
+  letter_list: "text-clip-primary tracking-tighter",
+  highlight_letter: "h-[115.2px] overflow-hidden",
 };

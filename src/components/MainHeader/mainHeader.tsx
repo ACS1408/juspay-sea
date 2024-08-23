@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const MainHeader = () => {
   return (
-    <header className="main-header py-9 z-[1024] relative">
+    <header className={`main-header ${twClasses.main_header}`}>
       <Container>
         <div className="flex justify-between gap-10">
           <Link href={`/`}>
@@ -99,6 +99,7 @@ const MainHeader = () => {
 export default MainHeader;
 
 const twClasses = {
+  main_header: "py-9 z-[1024] relative",
   nav: "flex items-center gap-[52px]",
   nav_links: "flex items-center gap-11",
   nav_link_item: {

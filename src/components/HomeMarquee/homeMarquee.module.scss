@@ -1,0 +1,13 @@
+.marquee_container {
+  @apply relative;
+  &::before,
+  &::after {
+    @apply content-[''] w-[100px] h-full absolute top-0 z-[2];
+  }
+  &::before {
+    @apply left-0 bg-gradient-to-r from-black-900 to-transparent;
+  }
+  &::after {
+    @apply right-0 bg-gradient-to-l from-black-900 to-transparent;
+  }
+}

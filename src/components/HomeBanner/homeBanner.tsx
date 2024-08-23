@@ -73,7 +73,8 @@ const HomeBanner = () => {
 export default HomeBanner;
 
 const twClasses = {
-  home_banner: "h-[calc(100svh_-_127.68px)] overflow-hidden flex items-center",
+  home_banner:
+    "min-h-[calc(100svh_-_127.68px)] overflow-hidden flex items-center",
   container: "relative flex justify-center items-center h-full",
   grid_markings: "absolute top-0 left-0 size-full",
   title: {

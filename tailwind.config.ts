@@ -2,33 +2,33 @@ import type { Config } from "tailwindcss";
 
 const colors = {
   primary: {
-    DEFAULT: "var(--wac-primary)",
-    900: "var(--wac-primary-900)",
-    800: "var(--wac-primary-800)",
+    DEFAULT: "var(--jp-primary)",
+    900: "var(--jp-primary-900)",
+    800: "var(--jp-primary-800)",
   },
   black: {
-    DEFAULT: "var(--wac-black)",
-    900: "var(--wac-black-900)",
-    800: "var(--wac-black-800)",
+    DEFAULT: "var(--jp-black)",
+    900: "var(--jp-black-900)",
+    800: "var(--jp-black-800)",
   },
   white: {
-    DEFAULT: "var(--wac-white)",
-    900: "var(--wac-white-900)",
+    DEFAULT: "var(--jp-white)",
+    900: "var(--jp-white-900)",
   },
-  transparent: "var(--wac-transparent)",
+  transparent: "var(--jp-transparent)",
   grey: {
-    DEFAULT: "var(--wac-grey)",
-    900: "var(--wac-grey-900)",
-    800: "var(--wac-grey-800)",
+    DEFAULT: "var(--jp-grey)",
+    900: "var(--jp-grey-900)",
+    800: "var(--jp-grey-800)",
   },
 };
 
 const fontWeight = {
-  light: "var(--wac-font-light)",
-  regular: "var(--wac-font-regular)",
-  medium: "var(--wac-font-medium)",
-  semibold: "var(--wac-font-semibold)",
-  bold: "var(--wac-font-bold)",
+  light: "var(--jp-font-light)",
+  regular: "var(--jp-font-regular)",
+  medium: "var(--jp-font-medium)",
+  semibold: "var(--jp-font-semibold)",
+  bold: "var(--jp-font-bold)",
 };
 
 const container = {
