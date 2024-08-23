@@ -149,6 +149,21 @@ const useHomeBanner = (): useHomeBanner => {
         });
       });
 
+      gsap.set(".reveal.to-top", { y: 50, autoAlpha: 0 });
+
+      let revealTl = gsap.timeline({ delay: 0.5 });
+      revealTl.fromTo(
+        ".reveal.to-top",
+        { y: 50, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 3,
+          ease: "expo.out",
+          stagger: { amount: 0.5 },
+        }
+      );
+
       window?.addEventListener("mousemove", handleMouseMove);
       return () => {
         window?.removeEventListener("mousemove", handleMouseMove);
@@ -156,7 +171,7 @@ const useHomeBanner = (): useHomeBanner => {
     },
     { scope: container }
   );
-  
+
   useLayoutEffect(() => {
     gsap.to(mouseTrackCardInner.current, {
       scale: 0.5,

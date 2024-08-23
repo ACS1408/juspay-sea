@@ -28,7 +28,10 @@ const HomeBanner = () => {
           className={`grid-markings ${twClasses.grid_markings}`}
         />
         <div className="z-[2] relative">
-          <h1 className="home-banner__title" ref={hoverableElements[0]}>
+          <h1
+            className="home-banner__title reveal to-top"
+            ref={hoverableElements[0]}
+          >
             <span
               className={`home-banner__title--normal ${twClasses.title.normal}`}
             >
@@ -37,7 +40,7 @@ const HomeBanner = () => {
             <CharacterSlots slotLetters={slotLetters} />
           </h1>
           <p
-            className={`home-banner__description ${twClasses.description}`}
+            className={`home-banner__description reveal to-top ${twClasses.description}`}
             ref={hoverableElements[1]}
           >
             <span className="home-banner__description--highlight text-white">
@@ -48,7 +51,7 @@ const HomeBanner = () => {
             regulatory nuances.
           </p>
           <div
-            className="text-center pt-[4%] w-max mx-auto"
+            className="text-center pt-[4%] w-max mx-auto reveal to-top"
             ref={hoverableElements[2]}
           >
             <Link

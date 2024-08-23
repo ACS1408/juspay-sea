@@ -1,11 +1,29 @@
-import React from "react";
+"use client";
+import React, { useLayoutEffect } from "react";
 import Container from "../Container";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
 
 const MainHeader = () => {
+  useLayoutEffect(() => {
+    let revealTl = gsap.timeline();
+
+    revealTl.fromTo(
+      ".reveal.to-bottom",
+      { y: -50, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 3,
+        ease: "expo.out",
+        stagger: { amount: 0.5 },
+      }
+    );
+  }, []);
+
   return (
-    <header className={`main-header ${twClasses.main_header}`}>
+    <header className={`main-header reveal to-bottom ${twClasses.main_header}`}>
       <Container>
         <div className="flex justify-between gap-10">
           <Link href={`/`}>
