@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef, MutableRefObject, useState, useEffect } from "react";
+import { useRef, MutableRefObject, useState, useLayoutEffect } from "react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -10,6 +10,7 @@ interface useHomeBanner {
   mouseTrackCardInner: MutableRefObject<HTMLDivElement | null>;
   hoverableElements: MutableRefObject<HTMLDivElement | null>[];
   trackCardData: TrackCardData;
+  slotLetters: MutableRefObject<HTMLDivElement | null>[];
 }
 
 export interface TrackCardData {
@@ -69,6 +70,23 @@ const useHomeBanner = (): useHomeBanner => {
     trackCardDataset[0]
   );
   const [cardDataIndex, setCardDataIndex] = useState(0);
+  const slotLetters = [
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+  ];
+
   useGSAP(
     () => {
       const handleMouseMove = (e: MouseEvent) => {
@@ -127,6 +145,15 @@ const useHomeBanner = (): useHomeBanner => {
         }
       };
 
+      slotLetters.forEach((letter) => {
+        gsap.to(letter.current, {
+          y: -115.2 * 4,
+          force3d: true,
+          duration: Math.random() * (5 - 4) + 4,
+          ease: "power4.inOut",
+        });
+      });
+
       window?.addEventListener("mousemove", handleMouseMove);
       return () => {
         window?.removeEventListener("mousemove", handleMouseMove);
@@ -134,7 +161,7 @@ const useHomeBanner = (): useHomeBanner => {
     },
     { scope: container }
   );
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.to(mouseTrackCardInner.current, {
       scale: 0.5,
       autoAlpha: 0,
@@ -164,6 +191,7 @@ const useHomeBanner = (): useHomeBanner => {
     mouseTrackCardInner,
     hoverableElements,
     trackCardData,
+    slotLetters,
   };
 };
 

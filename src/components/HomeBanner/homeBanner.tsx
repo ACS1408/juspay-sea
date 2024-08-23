@@ -13,6 +13,7 @@ const HomeBanner = () => {
     mouseTrackCardInner,
     hoverableElements,
     trackCardData,
+    slotLetters,
   } = useHomeBanner();
 
   return (
@@ -32,11 +33,367 @@ const HomeBanner = () => {
             >
               Payments designed for
             </span>
-            <span
-              className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
-            >
-              GLOBAL OUTCOMES
-            </span>
+            <div className="flex justify-center gap-8">
+              <span
+                className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
+              >
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[0]}
+                  >
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "80px" }}
+                    >
+                      G
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[1]}
+                  >
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "50px" }}
+                    >
+                      L
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[2]}
+                  >
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      £
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "80px" }}
+                    >
+                      O
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[3]}
+                  >
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      £
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "70px" }}
+                    >
+                      B
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[4]}
+                  >
+                    <div className="letter-box" style={{ width: "65px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "65px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "65px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "65px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "65px" }}
+                    >
+                      A
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[5]}
+                  >
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "50px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "50px" }}
+                    >
+                      L
+                    </div>
+                  </div>
+                </div>
+              </span>
+
+              <span
+                className={`home-banner__title--highlight ${twClasses.title.highlighted}`}
+              >
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[6]}
+                  >
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      £
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "80px" }}
+                    >
+                      O
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[7]}
+                  >
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "70px" }}>
+                      $
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "70px" }}
+                    >
+                      U
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[8]}
+                  >
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "55px" }}
+                    >
+                      T
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[9]}
+                  >
+                    <div className="letter-box" style={{ width: "75px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "75px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "75px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "75px" }}>
+                      €
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "75px" }}
+                    >
+                      C
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[10]}
+                  >
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      €
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "80px" }}
+                    >
+                      O
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[11]}
+                  >
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      ₹
+                    </div>
+                    <div className="letter-box" style={{ width: "80px" }}>
+                      £
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "80px" }}
+                    >
+                      M
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[12]}
+                  >
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "55px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "55px" }}
+                    >
+                      E
+                    </div>
+                  </div>
+                </div>
+                <div className="highlight-letter h-[115.2px] overflow-hidden">
+                  <div
+                    className="letter-list text-clip-primary tracking-tighter"
+                    ref={slotLetters[13]}
+                  >
+                    <div className="letter-box" style={{ width: "60px" }}>
+                      €
+                    </div>
+                    <div className="letter-box" style={{ width: "60px" }}>
+                      £
+                    </div>
+                    <div className="letter-box" style={{ width: "60px" }}>
+                      $
+                    </div>
+                    <div className="letter-box" style={{ width: "60px" }}>
+                      ₹
+                    </div>
+                    <div
+                      className="block visible-letter"
+                      style={{ width: "60px" }}
+                    >
+                      S
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </div>
           </h1>
           <p
             className={`home-banner__description ${twClasses.description}`}
@@ -76,9 +433,9 @@ const twClasses = {
   grid_markings: "absolute top-0 left-0 size-full",
   title: {
     normal:
-      "text-grey text-[80px] leading-[1.2] block text-center tracking-tight font-semibold",
+      "text-grey text-[96px] leading-[1.2] block text-center tracking-tight font-semibold",
     highlighted:
-      "text-clip-primary text-[80px] leading-[1.2] block text-center tracking-tight font-semibold",
+      "text-[96px] leading-[1.2] flex text-center tracking-tight font-semibold",
   },
   description:
     "text-grey-900 text-base font-regular leading-normal max-w-[435px] mx-auto text-center pt-[3%]",
