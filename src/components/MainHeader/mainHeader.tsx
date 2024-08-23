@@ -170,7 +170,7 @@ export default MainHeader;
 const twClasses = {
   main_header: "lg:py-9 py-6 z-[1024] relative",
   main_header_inner:
-    "flex justify-between items-center gap-10 llg:border-none border border-[#2a2a2a] lg:rounded-none rounded-[56px] lg:p-0 p-2",
+    "flex justify-between items-center gap-10 lg:border-none border border-[#2a2a2a] lg:rounded-none rounded-[56px] lg:p-0 p-2",
   nav: "lg:flex items-center gap-[52px] hidden",
   nav_links: "flex items-center gap-11",
   nav_link_item: {

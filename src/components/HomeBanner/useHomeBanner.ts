@@ -63,17 +63,32 @@ const useHomeBanner = (): useHomeBanner => {
   const container = useRef<HTMLDivElement | null>(null);
   const mouseTrackCard = useRef<HTMLDivElement | null>(null);
   const mouseTrackCardInner = useRef<HTMLDivElement | null>(null);
-  const hoverableElements = Array.from({ length: 3 }, () =>
-    useRef<HTMLDivElement | null>(null)
-  );
+  const hoverableElements = [
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+  ];
 
   const [trackCardData, setTrackCardData] = useState<TrackCardData>(
     trackCardDataset[0]
   );
   const [cardDataIndex, setCardDataIndex] = useState(0);
-  const slotLetters = Array.from({ length: 14 }, () =>
-    useRef<HTMLDivElement | null>(null)
-  );
+  const slotLetters = [
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+    useRef<HTMLDivElement | null>(null),
+  ];
 
   useGSAP(
     () => {

@@ -3,6 +3,7 @@ import React from "react";
 import Container from "../Container";
 import useHomeMarquee from "./useHomeMarquee";
 import style from "./homeMarquee.module.scss";
+import Image from "next/image";
 
 const logos = [
   "/images/marquee-brands/flipkart.svg",
@@ -27,10 +28,12 @@ const HomeMarquee = () => {
         >
           <div className={`marquee ${twClasses.marquee}`} ref={marqueeRef}>
             {logos.concat(logos).map((logo, index) => (
-              <img
+              <Image
                 src={logo}
                 alt={`Logo ${index}`}
                 key={index}
+                width={173}
+                height={64}
                 className={`marquee-image ${twClasses.marquee_image}`}
               />
             ))}
