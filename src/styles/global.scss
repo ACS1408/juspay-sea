@@ -29,9 +29,6 @@
   body {
     @apply bg-black-900;
   }
-  html {
-    @apply overflow-x-hidden;
-  }
 }
 
 @layer components {

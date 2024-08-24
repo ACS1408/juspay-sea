@@ -34,9 +34,11 @@ const MainHeader = () => {
   };
 
   return (
-    <header className={`main-header reveal to-bottom ${twClasses.main_header}`}>
+    <header className={`main-header ${twClasses.main_header}`}>
       <Container>
-        <div className={`main-header__inner ${twClasses.main_header_inner}`}>
+        <div
+          className={`main-header__inner reveal to-bottom ${twClasses.main_header_inner}`}
+        >
           <Link href={`/`}>
             <Image
               src="/images/juspay-logo.svg"
