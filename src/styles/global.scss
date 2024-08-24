@@ -27,7 +27,10 @@
 
 @layer base {
   body {
-    @apply bg-black-900 overflow-hidden;
+    @apply bg-black-900;
+  }
+  html {
+    @apply overflow-x-hidden;
   }
 }
 
