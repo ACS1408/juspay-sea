@@ -13,21 +13,17 @@ const MainHeader = () => {
 
   useLayoutEffect(() => {
     let revealTl = gsap.timeline();
-    ScrollTrigger.matchMedia({
-      "(min-width: 992px)": () => {
-        revealTl.fromTo(
-          ".reveal.to-bottom",
-          { y: -50, autoAlpha: 0 },
-          {
-            y: 0,
-            autoAlpha: 1,
-            duration: 3,
-            ease: "expo.out",
-            stagger: { amount: 0.5 },
-          }
-        );
-      },
-    });
+    revealTl.fromTo(
+      ".reveal.to-bottom",
+      { y: -50, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 3,
+        ease: "expo.out",
+        stagger: { amount: 0.5 },
+      }
+    );
   }, []);
 
   const handleOpenMobMenu = () => {
@@ -178,7 +174,7 @@ const MainHeader = () => {
 export default MainHeader;
 
 const twClasses = {
-  main_header: "lg:py-9 py-6 z-[1024] relative",
+  main_header: "lg:py-9 py-6 z-[1024] relative overflow-hidden",
   main_header_inner:
     "flex justify-between items-center gap-10 lg:border-none border border-[#2a2a2a] lg:rounded-none rounded-[56px] lg:p-0 p-2",
   nav: "lg:flex items-center gap-[52px] hidden",
@@ -199,7 +195,7 @@ const twClasses = {
   hamburger:
     "bg-[#2d2b2b] rounded-full size-10 lg:hidden flex flex-col gap-[3px] justify-center items-center",
   mob_menu:
-    "bg-black-900 fixed w-full h-svh top-0 right-0 transition-transform ease-in-out duration-300",
+    "bg-black-900 fixed w-full h-svh top-0 right-0 transition-transform ease-in-out duration-300 lg:hidden",
   close_btn:
     "absolute top-8 right-8 size-10 bg-[#2d2b2b] rounded-full flex flex-col justify-center items-center",
   mob_menu_list: "p-4 pt-24 flex flex-col gap-6",
